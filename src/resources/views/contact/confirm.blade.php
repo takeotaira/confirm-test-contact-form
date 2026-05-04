@@ -63,11 +63,8 @@
                 <input type="hidden" name="{{ $key }}" value="{{ $value }}">
             @endforeach
 
-            <button type="submit">送信</button>
-        </form>
-
-        <form action="/" method="get">
-            <button type="submit">修正</button>
+            <button type="submit" name="action" value="submit">送信</button>
+            <button type="submit" name="action" value="back">修正</button>
         </form>
     </main>
 </body>
