@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link rel="stylesheet" href="{{ asset('css/common.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Contact Form</h1>
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__logo">Contact Form</h1>
 
-        <form action="/logout" method="post">
-            @csrf
-            <button type="submit">logout</button>
-        </form>
+            <form action="/logout" method="post">
+                @csrf
+                <button type="submit">logout</button>
+            </form>
+        </div>
     </header>
 
-    <main>
+    <main class="main admin">
         <h2>Admin</h2>
 
         <form action="/search" method="get">

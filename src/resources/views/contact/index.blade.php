@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
+    <link rel="stylesheet" href="{{ asset('css/common.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Contact Form</h1>
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__logo">Contact Form</h1>
+        </div>
     </header>
 
-    <main>
+    <main class="main contact">
         <h2>Contact</h2>
 
         <form action="/confirm" method="post">
