@@ -1,5 +1,16 @@
+/* reset */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Arial", "Helvetica", sans-serif;
+}
+
+/* header */
 .header {
-    border-bottom: 1px solid #eee;
+    bborder-bottom: 1px solid #eee;
 }
 
 .header__inner {
