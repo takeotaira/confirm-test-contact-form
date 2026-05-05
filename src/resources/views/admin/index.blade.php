@@ -8,10 +8,16 @@
 <body>
     <header>
         <h1>Contact Form</h1>
+
+        <form action="/logout" method="post">
+            @csrf
+            <button type="submit">logout</button>
+        </form>
     </header>
 
     <main>
         <h2>Admin</h2>
+
         <form action="/search" method="get">
             <input type="text" name="keyword" value="{{ request('keyword') }}" placeholder="名前やメールアドレスを入力してください">
 
