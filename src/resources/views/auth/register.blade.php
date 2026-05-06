@@ -1,56 +1,66 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-    <link rel="stylesheet" href="{{ asset('css/common.css') }}">
-</head>
-<body>
-    <header class="header">
-        <div class="header__inner">
-            <h1 class="header__logo">Contact Form</h1>
+    <head>
+        <meta charset="UTF-8">
+        <title>Register</title>
+        <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+    </head>
+    <body>
+        <header class="header">
+            <div class="header__inner">
+                <h1 class="header__logo">FashionablyLate</h1>
 
-            <a href="/login">login</a>
-        </div>
-    </header>
-
-    <main class="main auth">
-        <h1 class="page-title">Register</h1>
-
-        <form class="auth-form" action="/register" method="post">
-            @csrf
-
-            <div>
-                <label>お名前</label>
-                <input type="text" name="name" value="{{ old('name') }}">
-                @error('name')
-                    <p>{{ $message }}</p>
-                @enderror
+                <a class="header__link" href="/login">login</a>
             </div>
+        </header>
 
-            <div>
-                <label>メールアドレス</label>
-                <input type="text" name="email" value="{{ old('email') }}">
-                @error('email')
-                    <p>{{ $message }}</p>
-                @enderror
-            </div>
+        <main class="main auth">
+            <h1 class="page-title">Register</h1>
 
-            <div>
-                <label>パスワード</label>
-                <input type="password" name="password">
-                @error('password')
-                    <p>{{ $message }}</p>
-                @enderror
-            </div>
+            <form class="auth-form" action="/register" method="post">
+                @csrf
 
-            <div>
-                <label>確認用パスワード</label>
-                <input type="password" name="password_confirmation">
-            </div>
+                <div class="auth-form__group">
+                    <label class="auth-form__label">お名前</label>
+                    <div class="auth-form__input">
+                        <input type="text" name="name" value="{{ old('name') }}">
+                        @error('name')
+                            <p class="form__error">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
 
-            <button type="submit">登録</button>
-        </form>
-    </main>
-</body>
+                <div class="auth-form__group">
+                    <label class="auth-form__label">メールアドレス</label>
+                    <div class="auth-form__input">
+                        <input type="text" name="email" value="{{ old('email') }}">
+                        @error('email')
+                            <p class="form__error">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="auth-form__group">
+                    <label class="auth-form__label">パスワード</label>
+                    <div class="auth-form__input">
+                        <input type="password" name="password">
+                        @error('password')
+                            <p class="form__error">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="auth-form__group">
+                    <label class="auth-form__label">確認用パスワード</label>
+                    <div class="auth-form__input">
+                        <input type="password" name="password_confirmation">
+                    </div>
+                </div>
+
+                <div class="button-area">
+                    <button class="button" type="submit">登録</button>
+                </div>
+            </form>
+        </main>
+    </body>
 </html>
