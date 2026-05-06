@@ -3,7 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Contact;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,10 +13,18 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        $this -> call(CategorySeeder::class);
+    public function run(): void
+{
+    // 確認者用ユーザー
+    User::create([
+        'name' => 'test user',
+        'email' => 'test@example.com',
+        'password' => Hash::make('password'),
+    ]);
 
-    Contact::factory(35) -> create();
-    }
+    $this->call([
+        CategorySeeder::class,
+        ContactSeeder::class,
+    ]);
+}
 }
