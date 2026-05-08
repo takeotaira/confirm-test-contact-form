@@ -45,6 +45,13 @@ DB_PASSWORD=laravel_pass
 - メールアドレス: test@example.com
 - パスワード: password
 
+## 実装機能
+
+- お問い合わせフォーム機能
+- 管理画面機能
+- ユーザー認証機能
+- CSVエクスポート機能
+
 ## 使用技術
 
 - PHP
@@ -60,5 +67,3 @@ DB_PASSWORD=laravel_pass
 
 - 開発環境: http://localhost/
 - phpMyAdmin: http://localhost:8080/
-
-[def]: ./docs/er.drawio.png
