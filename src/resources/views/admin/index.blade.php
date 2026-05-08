@@ -11,9 +11,9 @@
             <div class="header__inner">
                 <h1 class="header__logo">FashionablyLate</h1>
 
-                <form action="/logout" method="post">
+                <form class="header__form" action="/logout" method="post">
                     @csrf
-                    <button type="submit">logout</button>
+                    <button class="header__button" type="submit">logout</button>
                 </form>
             </div>
         </header>
@@ -43,17 +43,23 @@
                 <input class="admin-search__date" type="date" name="created_at" value="{{ request('created_at') }}">
 
                 <button class="admin-search__button" type="submit">検索</button>
+                <a class="admin-search__reset" href="/reset">リセット</a>
             </form>
 
-            <form action="/export" method="get">
-                <input type="hidden" name="keyword" value="{{ request('keyword') }}">
-                <input type="hidden" name="gender" value="{{ request('gender') }}">
-                <input type="hidden" name="category_id" value="{{ request('category_id') }}">
-                <input type="hidden" name="date" value="{{ request('date') }}">
-                <button class="button" type="submit">エクスポート</button>
-            </form>
+            <div class="admin-tools">
+                <form class="admin-export" action="/export" method="get">
+                    <input type="hidden" name="keyword" value="{{ request('keyword') }}">
+                    <input type="hidden" name="gender" value="{{ request('gender') }}">
+                    <input type="hidden" name="category_id" value="{{ request('category_id') }}">
+                    <input type="hidden" name="date" value="{{ request('date') }}">
+                    <button class="admin-export__button" type="submit">エクスポート</button>
+                </form>
 
-            <a class="admin-search__reset" href="/reset">リセット</a>
+                <div class="admin-pagination">
+                    {{ $contacts->links() }}
+                </div>
+            </div>
+
 
         <div class="admin-table__wrap">
             <table class="admin-table">
@@ -152,9 +158,6 @@
                 @endforeach
             </table>
 
-            <div>
-                {{ $contacts->links() }}
-            </div>
         </main>
     </body>
 </html>

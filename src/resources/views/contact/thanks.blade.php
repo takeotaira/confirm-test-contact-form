@@ -8,8 +8,10 @@
     </head>
     <body>
         <main class="thanks">
+        <div class="thanks__inner">
             <p class="thanks__message">お問い合わせありがとうございました</p>
             <a class="thanks__button" href="/">HOME</a>
+        </div>
         </main>
     </body>
 </html>
