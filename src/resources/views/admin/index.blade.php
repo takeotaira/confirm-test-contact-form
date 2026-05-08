@@ -45,6 +45,14 @@
                 <button class="admin-search__button" type="submit">検索</button>
             </form>
 
+            <form action="/export" method="get">
+                <input type="hidden" name="keyword" value="{{ request('keyword') }}">
+                <input type="hidden" name="gender" value="{{ request('gender') }}">
+                <input type="hidden" name="category_id" value="{{ request('category_id') }}">
+                <input type="hidden" name="date" value="{{ request('date') }}">
+                <button class="button" type="submit">エクスポート</button>
+            </form>
+
             <a class="admin-search__reset" href="/reset">リセット</a>
 
         <div class="admin-table__wrap">
