@@ -20,7 +20,7 @@
                 @csrf
 
                 <div class="form__group">
-                    <label class="form__label">お名前</label>
+                    <label class="form__label">お名前 <span class="form__required">※</span></label>
 
                     <div class="form__input form__input--name">
                         <input type="text" name="last_name" value="{{ old('last_name') }}" placeholder="例: 山田">
@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="form__group">
-                    <label class="form__label">性別</label>
+                    <label class="form__label">性別 <span class="form__required">※</span></label>
 
                     <div class="form__input form__input--radio">
                         <label>
@@ -60,7 +60,8 @@
                 </div>
 
                 <div class="form__group">
-                    <label class="form__label">メールアドレス</label>
+                    <label class="form__label">メールアドレス <span class="form__required">※</span></label>
+
 
                     <div class="form__input">
                         <input type="text" name="email" value="{{ old('email') }}" placeholder="例: test@example.com">
@@ -71,23 +72,29 @@
                 </div>
 
                 <div class="form__group">
-                    <label class="form__label">電話番号</label>
+                    <label class="form__label">
+                        電話番号 <span class="form__required">※</span>
+                    </label>
 
-                    <div class="form__input form__input--tel">
-                        <input type="text" name="tel1" value="{{ old('tel1') }}" placeholder="080">
-                        <input type="text" name="tel2" value="{{ old('tel2') }}" placeholder="1234">
-                        <input type="text" name="tel3" value="{{ old('tel3') }}" placeholder="5678">
+                    <div class="form__input">
+                        <div class="form__input--tel">
+                            <input type="text" name="tel1" value="{{ old('tel1') }}" placeholder="080">
+                            <span>-</span>
+                            <input type="text" name="tel2" value="{{ old('tel2') }}" placeholder="1234">
+                            <span>-</span>
+                            <input type="text" name="tel3" value="{{ old('tel3') }}" placeholder="5678">
+                        </div>
 
                         @if ($errors->has('tel1') || $errors->has('tel2') || $errors->has('tel3'))
                             <p class="form__error">
-                            {{ $errors->first('tel1') ?: ($errors->first('tel2') ?: $errors->first('tel3')) }}
+                                {{ $errors->first('tel1') ?: ($errors->first('tel2') ?: $errors->first('tel3')) }}
                             </p>
                         @endif
                     </div>
                 </div>
 
                 <div class="form__group">
-                    <label class="form__label">住所</label>
+                    <label class="form__label">住所 <span class="form__required">※</span></label>
 
                     <div class="form__input">
                         <input type="text" name="address" value="{{ old('address') }}" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3">
@@ -106,7 +113,7 @@
                 </div>
 
                 <div class="form__group">
-                    <label class="form__label">お問い合わせの種類</label>
+                    <label class="form__label">お問い合わせの種類 <span class="form__required">※</span></label>
 
                     <div class="form__input">
                         <select name="category_id">
@@ -125,7 +132,7 @@
                 </div>
 
                 <div class="form__group">
-                    <label class="form__label">お問い合わせ内容</label>
+                    <label class="form__label">お問い合わせ内容 <span class="form__required">※</span></label>
 
                     <div class="form__input">
                         <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>

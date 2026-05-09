@@ -68,8 +68,7 @@
                     <th>性別</th>
                     <th>メールアドレス</th>
                     <th>お問い合わせの種類</th>
-                    <th>詳細</th>
-                    <th>削除</th>
+                    <th></th>
                 </tr>
 
                 @foreach ($contacts as $contact)
@@ -144,15 +143,16 @@
                                             <td>{{ $contact->detail }}</td>
                                         </tr>
                                     </table>
+
+                                    <form class="modal__delete-form" action="/delete" method="post">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $contact->id }}">
+                                        <button class="modal__delete-button" type="submit">削除</button>
+                                    </form>
+
+
                                 </div>
                             </dialog>
-                        </td>
-                        <td>
-                            <form action="/delete" method="post">
-                                @csrf
-                                <input type="hidden" name="id" value="{{ $contact->id }}">
-                                <button class="admin-table__button admin-table__button--delete" type="submit">削除</button>
-                            </form>
                         </td>
                     </tr>
                 @endforeach
